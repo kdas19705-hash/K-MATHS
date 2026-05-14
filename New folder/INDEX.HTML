@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maths Solver App</title>
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    select, input, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .output {
+        margin-top: 20px;
+        background: #e8f5e9;
+        padding: 15px;
+        border-radius: 8px;
+        min-height: 50px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📘 Maths Solver App</h1>
+
+    <label>Select Chapter:</label>
+    <select id="chapter">
+        <option value="quadratic">Quadratic Equations</option>
+        <option value="linear">Linear Equations</option>
+        <option value="ap">Arithmetic Progression</option>
+        <option value="probability">Probability</option>
+    </select>
+
+    <label>Enter Problem:</label>
+    <input type="text" id="question" placeholder="e.g. x^2 - 5x + 6 = 0">
+
+    <button onclick="solve()">Solve Step-by-Step</button>
+
+    <div class="output" id="output"></div>
+</div>
+
+<script>
+function solve() {
+    let chapter = document.getElementById("chapter").value;
+    let q = document.getElementById("question").value;
+    let output = document.getElementById("output");
+
+    if (chapter === "quadratic") {
+        output.innerHTML = `
+        <b>Quadratic Equation Solver</b><br><br>
+        Step 1: Standard form → ax² + bx + c = 0<br>
+        Step 2: Identify values from: ${q}<br>
+        Step 3: Use formula → x = (-b ± √(b² - 4ac)) / 2a<br><br>
+        ⚠️ Full automatic solving will be added later using JavaScript math engine or AI API.
+        `;
+    }
+
+    else if (chapter === "linear") {
+        output.innerHTML = `
+        <b>Linear Equation Solver</b><br><br>
+        Step 1: Standard form → ax + b = 0<br>
+        Step 2: Rearrange equation<br>
+        Step 3: Solve for x<br><br>
+        (Auto solver coming soon)
+        `;
+    }
+
+    else if (chapter === "ap") {
+        output.innerHTML = `
+        <b>Arithmetic Progression</b><br><br>
+        Step 1: Identify a, d<br>
+        Step 2: Use formulas:<br>
+        aₙ = a + (n-1)d<br>
+        Sₙ = n/2 [2a + (n-1)d]
+        `;
+    }
+
+    else if (chapter === "probability") {
+        output.innerHTML = `
+        <b>Probability</b><br><br>
+        Formula:<br>
+        P(E) = Favorable outcomes / Total outcomes<br>
+        `;
+    }
+}
+</script>
+
+</body>
+</html>
